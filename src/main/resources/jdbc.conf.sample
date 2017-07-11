@@ -1,0 +1,16 @@
+oceanus {
+
+  host=""
+  port=""
+  database=""
+  username=""
+  password=""
+
+  proxy {
+    host=""
+    port=""
+    database=""
+    username=""
+    password=""
+  }
+}
