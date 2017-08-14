@@ -46,13 +46,18 @@ lazy val root = (project in file(".")).
     name := "kinesis_stream",
     libraryDependencies += "org.apache.spark" %% "spark-core" % "2.1.0" % Provided,
     libraryDependencies += "org.apache.spark" %% "spark-streaming" % "2.1.0" % Provided,
+    libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.1.0",
+    libraryDependencies += "org.scala-lang" % "scala-reflect" % "2.10.0-M4",
     libraryDependencies += "org.apache.spark" %% "spark-streaming-kinesis-asl" % "2.1.0",
-    libraryDependencies += "com.amazonaws" % "aws-java-sdk" % "1.0.002",
-    libraryDependencies += "com.amazonaws" % "amazon-kinesis-producer" % "0.10.0",
+  //  libraryDependencies += "net.databinder.dispatch" % "dispatch-core_2.10" % "0.11.3",
+    libraryDependencies += "org.scalaj" % "scalaj-http_2.11" % "2.3.0",
     libraryDependencies += "com.typesafe" % "config" % "1.3.0",
     libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-0-8" % "2.0.0",
-    libraryDependencies += "org.apache.spark" % "spark-streaming-twitter_2.11" % "1.6.1",
+ //   libraryDependencies += "org.apache.spark" % "spark-streaming-twitter_2.11" % "1.6.1",
     libraryDependencies += "postgresql" % "postgresql" % "9.1-901.jdbc4",
+    libraryDependencies += "com.rabbitmq" % "amqp-client" % "3.6.6",
+    libraryDependencies += "org.apache.kafka" % "connect-json" % "0.9.0.0",
+    libraryDependencies += "org.yaml" % "snakeyaml" % "1.11",
     libraryDependencies += "org.apache.kafka" %% "kafka" % "0.10.1.0" exclude("org.scalatest", "scalatest_2.10")
   ).
   settings(
