@@ -33,12 +33,13 @@ object KinesisToKafka {
       InitialPositionInStream.LATEST, Seconds(60))
     val kafkaSink = KafkaSink[String, JsonNode](config.getKafkaProducerConfig())
 
-    kinesisEventsStream.foreachRDD( rdd => {
+    kinesisEventsStream.foreachRDD( (rdd,t) => {
       rdd.foreachPartition( partition => {
         partition.foreach({ case(x,y) =>
           kafkaSink.send(x,y)
         })
       })
+     // rdd.saveAsTextFile(s"s3n://AKIAI3I4UUXZTUXIFZ2Q:60dtzhrf7tuYV21DqkU6o22NWj6T9BdiryYZfMwT@r-dess-kinesis-vikilitics-events/" + t.milliseconds.toString)
     })
 
     // Shut down
